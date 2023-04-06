@@ -20,6 +20,8 @@ DependencyRuleActionDeniedError: src/apps/algebra/main.py has 1 dependency viola
 
 because an application is not allowed to import from another application.
 
+There's a branch named `dependency-violations` containing multiple violations that you can check out to learn more.
+
 ## Rules
 
 ### Sources
