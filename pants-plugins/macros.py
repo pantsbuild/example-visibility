@@ -11,7 +11,7 @@ def visibility_application(**kwargs):
             f"//src/apps/{name}/**",  # current subtree, recursively
             *(f"//{path}" for path in allowed_dependents),
             "//tests/**",  # any test can import these sources
-            "!*",  # nothing else
+            "?*",  # nothing else
         )
     )
     __dependencies_rules__(
@@ -22,7 +22,7 @@ def visibility_application(**kwargs):
             f"//src/shared/*",
             *(f"//{path}" for path in allowed_dependencies),
             "//3rdparty/requirements#click",  # only some 3rd party libraries
-            "!*",  # nothing else
+            "?*",  # nothing else
         )
     )
 
@@ -38,7 +38,7 @@ def visibility_shared_library(**kwargs):
             {"type": "*"},  # or {"path": "*"}
             *(f"//{path}" for path in allowed_dependents),
             "//tests/**",  # any test can import these sources
-            "!*",  # nothing else
+            "?*",  # nothing else
         )
     )
     __dependencies_rules__(
@@ -48,7 +48,7 @@ def visibility_shared_library(**kwargs):
             f"//{name}/*",  # current subtree
             f"//{name}/**",  # current subtree, recursively
             *(f"//{path}" for path in allowed_dependencies),
-            "!*",  # nothing else
+            "?*",  # nothing else
         )
     )
 
@@ -61,7 +61,7 @@ def visibility_testdata():
             # same subtree
             {"type": "files"},
             "/../**",
-            "!*",  # nothing else may depend on files
+            "?*",  # nothing else may depend on files
         )
     )
 
@@ -71,7 +71,7 @@ def visibility_test_suite():
     __dependencies_rules__(
         (
             "*",  # for all files
-            "!test_*.py",  # nothing may depend on other tests
+            "?test_*.py",  # nothing may depend on other tests
             "*",
         ),
         (
@@ -88,19 +88,19 @@ def visibility_test_suite():
             # rules already ensure that test-to-test dependencies
             # are forbidden, so this is relevant only for conftest.py
             # dependencies and other helpers)
-            "!*",  # nothing else may depend on tests
+            "?*",  # nothing else may depend on tests
         ),
         (
             {"type": "python_sources"},
             "/**",  # allow dependencies within tests tree
-            "!*",  # nothing else may depend on sources
+            "?*",  # nothing else may depend on sources
         ),
         (
             # anyone may depend on a conftest.py file that is in the
             # same subtree
             {"path": "./conftest.py"},
             "./**",
-            "!*",
+            "?*",
         ),
         (
             ({"type": "*"},),

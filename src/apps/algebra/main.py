@@ -3,6 +3,7 @@ import click
 from src.apps.utils.cliutils import HELP_OPTS
 from src.apps.algebra.implementation import calculate_sum
 from src.shared.casts import to_int
+from src.apps.geometry.implementation import calculate_rectangle_area
 
 
 @click.group()
