@@ -1,5 +1,5 @@
 [GLOBAL]
-pants_version = "2.16.0"
+pants_version = "2.17.0"
 backend_packages.add = [
   "pants.backend.python",
   "pants.backend.python.lint.black",
@@ -16,6 +16,7 @@ repo_id = "e35b0560-cd35-11ed-90cd-3887d50cfd0f"
 
 [python-infer]
 unowned_dependency_behavior = "error"
+use_rust_parser = true
 
 [source]
 root_patterns = ["/"]
