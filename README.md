@@ -22,6 +22,8 @@ because an application is not allowed to import from another application.
 
 There's a branch named `dependency-violations` containing multiple violations that you can check out to learn more.
 
+Run `pants lint ::` to validate dependencies.
+
 ## Rules
 
 ### Sources

@@ -56,9 +56,6 @@ jobs:
     - name: Test
       run: |
         pants test ::
-    - name: Validate dependencies
-      run: |
-        pants dependencies :: > /dev/null
     - name: Upload pants log
       uses: actions/upload-artifact@v3
       with:
