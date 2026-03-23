@@ -1,6 +1,6 @@
 # Visibility rules
 
-This is a toy repository containing a few [visibility rules](https://github.com/pantsbuild/pants/blob/main/docs/markdown/Using%20Pants/validating-dependencies.md) 
+This is a toy repository containing a few [visibility rules](https://www.pantsbuild.org/stable/docs/using-pants/validating-dependencies)
 that should help you to get started writing own rules. 
 You can amend the `pants-plugins/macros.py` rules or modify the Python source code and see what kind of 
 violations your changes trigger. For instance, adding
